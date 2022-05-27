@@ -1,0 +1,118 @@
+.login-page{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1366px;
+    padding: 40px;
+    padding-top: 70px;
+    margin: auto;
+}
+.image-block{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* background-image: url('../../assets/images/pngs/image-removebg-preview.png'); */
+}
+.logo-bg{
+    position: absolute;
+    width: 100px;
+    top: -7%;
+    left: 27%;
+}
+.pmu-logo{
+    width: 200px;
+}
+.project-heading{
+    font-size: 48px;
+    font-family: 'Source-sans-pro-regular';
+    padding-left: 25px;
+    max-width: 600px;
+}
+.colored-text{
+    color: #ff000096;
+}
+.login-page-block{
+    width: 435px;
+    padding: 50px 50px;
+    border: 1px solid #2222;
+    box-shadow: 2px 12px 22px -14px #728a96;
+    border-radius: 16px;
+    max-width: 537px;
+    
+}
+.email-block{
+    margin-bottom: 30px;
+}
+.email-block p{
+    margin: 0;
+}
+.sign-in-block{
+    display: flex;
+    justify-content: flex-start;
+}
+.sign-in-block{
+    display: flex;
+    align-items: center;
+}
+.sign-in-txt{
+    font-size: 20px;
+    font-family: 'Source-sans-pro-regular';
+    cursor: pointer;
+    border-bottom: 1px solid #ff000096;
+    width: 100%;
+    border-image-source: linear-gradient(to right, #ff000096, #ffffff);
+    border-image-slice: 1;
+    border-width: 5px;
+}
+.sign-in-txt:nth-child(2){
+    margin-left: 60px;
+}
+.active-txt{
+    color: #ff000096;
+    font-size: 34px;
+    padding-bottom: 10px;
+    
+}
+.input-field{
+    width: 400px;
+    /* height: 60px; */
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.input-field::placeholder{
+    color: black;
+    /* font-style:italic; */
+    opacity: 1;
+}
+input:focus{
+    outline: none;
+}
+.forgot-pass{
+    color: #ff000096;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+.common-btn-styles{
+    background-color: #ff000096;
+    font-family:'Source-sans-pro-regular';
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.login-btn {
+    width: 100%;
+}
+.error-msg{
+    color: #ff000096;
+}
+.error-msg img{
+    margin-right: 10px;
+}

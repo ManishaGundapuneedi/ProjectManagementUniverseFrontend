@@ -1,11 +1,14 @@
+
 import './App.css';
-import LoginPageComponent from '../src/login-page/LoginPage'
+import { HeaderComponent } from './common/header-component/HeaderComponent';
+import LoginPageComponent from './components/login-page/LoginPage';
 
 function App() {
   return (
    
     <div>
-        <LoginPageComponent/>
+      {/* <HeaderComponent/> */}
+      <LoginPageComponent/>
     </div>
   );
 }
