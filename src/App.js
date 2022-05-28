@@ -1,5 +1,5 @@
 import "./App.css";
-import {Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPageComponent from "../src/components/login-page/LoginPage";
 import ProjectsList from "./components/ProjectsList";
 import ResourcesList from "./components/ResourcesList";
