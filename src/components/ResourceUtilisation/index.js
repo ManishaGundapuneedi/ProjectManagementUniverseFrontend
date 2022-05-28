@@ -51,10 +51,10 @@ export default function ResourceUtilisation() {
   const columns = (classes) => {
     return [
       {
-        key: "resourceName",
+        key: "firstName",
         label: "Resource Name",
-        value: (row) => row.resourceName,
-        renderCell: (row) => <div>{row.resourceName ? row.resourceName : '--'}</div>,
+        value: (row) => row.firstName,
+        renderCell: (row) => <div>{row.firstName ? row.firstName : '--'}</div>,
       },
       {
         key: "availableHrs",

@@ -101,7 +101,7 @@ const LoginPageComponent = ()=>{
                             .then((response) => {
                               if (response.status === 200) {
                                     if(response.data.message === "SUCCESS"){
-                                        navigate('/projects')
+                                        window.location.href = `${window.location.host}/projects`
                                     }
                                     else{
                                         notify(response.data.message)
