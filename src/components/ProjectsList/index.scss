@@ -1,0 +1,89 @@
+.project-name-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+    
+
+
+.project-name{
+    display: flex;
+    font-size: 25px;
+}
+
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 20px;
+    position: relative;
+}
+
+.experience-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    font-size: 20px;
+    text-align: left;
+}
+.form-section-block {
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-top: 5px;
+    box-shadow: 0px 3px 10px 5px lightgrey;
+    padding-top: 30px;
+}
+
+.addrow-btn {
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    
+}
+
+.skills-option-section {
+    height: 50px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+}
+
+.skills-option-section:focus{
+    height: 50px;
+    margin-top: 5px;
+    outline: unset;
+
+}
+
+.experience-number {
+    border-radius:5px ;
+    height: 50px;
+    padding-left: 10px;
+    margin-top: 5px;
+    border: 1px solid lightgray;
+}
+
+.experience-number {
+    height: 50px;
+    padding-left: 10px;
+    &:focus{
+        outline: 0px solid transparent;
+    }
+    
+}
+
+.delete-image-section {
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+
+}
+
