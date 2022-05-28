@@ -45,6 +45,7 @@ export default function ProjectList() {
   ];
 
   const [filterResult, setFilterResult] = useState(rowData);
+  const [kpisData, setKpisData] = useState({});
   const notify = (msg) => toast(msg);
 
   const columns = (classes) => {
@@ -110,6 +111,11 @@ export default function ProjectList() {
     .then((res) => {
       if (res.data && res.data.status === 200) {
         let list = res?.data?.data?.listData;
+        setKpisData({
+            activeCount: res?.data?.data?.activeCount,
+            completed: res?.data?.data?.completed,
+            upcoming: res?.data?.data?.upcoming
+        })
         let finalList = list.map(eachItem => {
           return {
             projectId: eachItem.projectId,
@@ -177,7 +183,7 @@ export default function ProjectList() {
                 <img src={newi} alt="" />
               </div>
               <div className="kpi1">
-                <div className="kpn1">123</div>
+                <div className="kpn1">{kpisData.activeCount}}</div>
                 <div className="lbl1">Active</div>
               </div>
             </div>
@@ -187,7 +193,7 @@ export default function ProjectList() {
                 <img src={activei} alt="" />
               </div>
               <div className="kpi1">
-                <div className="kpn1">456</div>
+                <div className="kpn1">{kpisData.completed}</div>
                 <div className="lbl1">Completed</div>
               </div>
             </div>
@@ -197,7 +203,7 @@ export default function ProjectList() {
                 <img src={inactivei} alt="" />
               </div>
               <div className="kpi1">
-                <div className="kpn1">789</div>
+                <div className="kpn1">{kpisData.upcoming}</div>
                 <div className="lbl1">Upcoming</div>
               </div>
             </div>

@@ -45,6 +45,7 @@ export default function ResourcesList() {
   ];
 
   const [filterResult, setFilterResult] = useState(rowData);
+  const [kpisData, setKpisData] = useState({});
   const notify = (msg) => toast(msg);
 
   const columns = (classes) => {
@@ -115,6 +116,11 @@ export default function ResourcesList() {
     .then((res) => {
       if (res.data && res.data.status === 200) {
         let list = res?.data?.data?.listData;
+        setKpisData({
+            available: res?.data?.data?.available,
+            occupied: res?.data?.data?.occupied,
+            inActive: res?.data?.data?.inActive
+        })
         let finalList = list.map(eachItem => {
           return {
             id: eachItem.id,
@@ -183,7 +189,7 @@ export default function ResourcesList() {
                 <img src={newi} alt="" />
               </div>
               <div className="kpi1">
-                <div className="kpn1">123</div>
+                <div className="kpn1">{kpisData.available}</div>
                 <div className="lbl1">Available</div>
               </div>
             </div>
@@ -193,7 +199,7 @@ export default function ResourcesList() {
                 <img src={activei} alt="" />
               </div>
               <div className="kpi1">
-                <div className="kpn1">456</div>
+                <div className="kpn1">{kpisData.occupied}</div>
                 <div className="lbl1">Occupied</div>
               </div>
             </div>
@@ -203,7 +209,7 @@ export default function ResourcesList() {
                 <img src={inactivei} alt="" />
               </div>
               <div className="kpi1">
-                <div className="kpn1">789</div>
+                <div className="kpn1">{kpisData.inActive}</div>
                 <div className="lbl1">inactive</div>
               </div>
             </div>
