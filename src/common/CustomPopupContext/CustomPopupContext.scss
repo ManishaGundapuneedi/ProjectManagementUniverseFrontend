@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+.btn {
+  cursor: pointer;
+}
+
+.popup_context {
+  width: 50vw;
+  min-height: 50vh;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 4;
+  cursor: auto;
+}
+.popupContainer_context__custom {
+  z-index: 1000;
+}
+.popupHeader_context {
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.popupHeader_context__dots {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.heading_context {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 22px;
+  color: #3994ff;
+}
+
+.popupMessage_context {
+  width: 406px;
+  height: 55px;
+  padding: 0px 30px;
+}
+.actionButtons_context {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 30px 30px;
+}
+.deleteBtn_context {
+  width: 142px;
+  border-radius: 6px;
+  border: 1px solid #ff9600;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 8px 0px;
+  cursor: pointer;
+}
+.saveBtn_context {
+  cursor: pointer;
+  width: 160px;
+  border-radius: 6px;
+  background: #ff9600;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 20px;
+  padding: 8px 0px;
+}
+.btnTxt_context {
+  margin-top: 8px;
+  font-family: "Lato";
+  font-size: 16px;
+}
+.overlay_context {
+  position: fixed; /* Sit on top of the page content */
+  display: flex; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(40, 40, 40, 0.24); /* Black background with opacity */
+  z-index: 10; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+
+  justify-content: center;
+  align-items: center;
+}
+
+.headerBorder_context {
+  margin-top: -9px;
+}
+.headerBorder_context img {
+  width: calc(100% - 30px);
+}
+
+.children_context {
+  padding: 0px 30px;
+  height: calc(100vh - 270px);
+  overflow-y: auto;
+  margin-bottom: 20px;
+  
+}
+.children_context::-webkit-scrollbar {
+  width: 4px;
+}
+.children_context::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+}
+.children_context::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 4px;
+}
+
+.closeButton_context {
+  cursor: pointer;
+}
+.closeButton_context img {
+  width: 14px;
+}

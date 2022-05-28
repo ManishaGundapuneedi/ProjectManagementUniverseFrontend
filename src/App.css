@@ -1,0 +1,50 @@
+body{
+  font-family: 'Helvetica';
+  font-size: 14px;
+  color: #000000;
+}
+.table__cell{
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+  font-size: 26;
+  font-family: sans-serif;
+}
+.table-header-cell{
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+  font-size: 28px;
+  font-family: sans-serif;
+  border-bottom: 1px solid #004eff;                     
+}
+.table{
+  margin: auto;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+tbody tr:hover {
+  background-color: #ff13001a;
+}
+
+.heading {
+  font-size: 40px;
+  text-align: center;
+}
+@font-face {
+  font-family: 'Source-sans-pro-regular';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../src/assets/fonts/OpenSans-Regular.ttf')format('truetype');
+}
+/* :root {
+  --toastify-color-progress-light: linear-gradient(
+   unset !important;
+  );
+} */
+
+.content_wrapper {
+  padding: 0 40px;
+}

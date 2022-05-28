@@ -1,0 +1,18 @@
+.semi-circular-graph-section {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+}
+
+.semi-circular-graph {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #3c3c3c;
+    position: absolute;
+    text-align: center;
+    bottom: 5px;
+    width: 100px;
+}
