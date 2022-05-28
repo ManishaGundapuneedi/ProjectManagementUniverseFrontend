@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import pmuLogo from "../../assets/images/pngs/pmu.jpg"
 import background from "../../assets/images/pngs/image-removebg-preview.png"
-import "./loginpage.css"
+import "./loginpage.scss"
 import errorIcon from "../../assets/images/svgs/error.svg"
 import { postApiData } from "../../utils/apiServices";
 import { BASE_URL, LOGIN_URL } from "../../utils/constants";

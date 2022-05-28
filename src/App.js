@@ -11,11 +11,13 @@ function App() {
      
       <Router>
         <Header />
-        <Routes>
-          <Route key="resources" path="/resources" element={<ResourcesList />} />
-          <Route key="projects" path="/projects" element={<ProjectsList />} />
-          <Route path="/" element={<LoginPageComponent />} />
-        </Routes>
+        <div className="content_wrapper">
+          <Routes>
+            <Route key="resources" path="/resources" element={<ResourcesList />} />
+            <Route key="projects" path="/projects" element={<ProjectsList />} />
+            <Route path="/" element={<LoginPageComponent />} />
+          </Routes>
+        </div>
       </Router>
     </div>
   );
