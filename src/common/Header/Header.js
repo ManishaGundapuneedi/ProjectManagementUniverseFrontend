@@ -18,7 +18,7 @@ const ITEMS_LIST = [
   },
   {
     name: "Resource Utilisation",
-    linkTo: "/resource-utilisation",
+    linkTo: "/resources/utilisation",
     className: "",
   },
   {
@@ -37,6 +37,7 @@ class Header extends Component {
 
     this.handleHamburgerButtonClick =
       this.handleHamburgerButtonClick.bind(this);
+    this.handleAdminListItemClick = this.handleAdminListItemClick.bind(this);
   }
 
   handleHamburgerButtonClick() {
@@ -45,6 +46,10 @@ class Header extends Component {
         openHamburger: !state.openHamburger,
       };
     });
+  }
+
+  handleAdminListItemClick(item) {
+    this.setState({ openHamburger: false });
   }
 
   render() {
@@ -86,7 +91,7 @@ class Header extends Component {
                 <ul className="hamburger-list">
                   {ITEMS_LIST.map((eachItem) => (
                     <Link to={eachItem.linkTo}>
-                      <li className="hamburger-list-item">{eachItem.name}</li>
+                      <li className="hamburger-list-item" onClick={this.handleAdminListItemClick}>{eachItem.name}</li>
                     </Link>
                   ))}
                 </ul>
