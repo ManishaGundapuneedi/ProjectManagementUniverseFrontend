@@ -64,9 +64,11 @@ export default function ProjectList() {
 
   const [filterResult, setFilterResult] = useState(rowData);
   const [kpisData, setKpisData] = useState({});
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState('');
   const notify = (msg) => toast(msg);
 
-  const columns = (classes) => {
+  const columns = (classes, onRequestClick) => {
     return [
       {
         key: "projectName",
@@ -114,7 +116,7 @@ export default function ProjectList() {
         label: "",
         renderCell: (row) => 
             <div>
-                <button className="request-button">Request resource</button>
+                <button onClick={() => onRequestClick(row)} className="request-button">Request resource</button>
             </div>,
       },
     ];
@@ -151,6 +153,11 @@ export default function ProjectList() {
     .catch((err) => {
       notify(err);
     });
+  }
+
+  const onRequestClick = (row) => {
+    setIsPopupOpen(true);
+    setCurrentProject(row.projectName);
   }
 
   return (
@@ -232,7 +239,7 @@ export default function ProjectList() {
           </div>
         </div>
 
-        <Table className="list-table" columns={columns()} rows={filterResult} />
+        <Table className="list-table" columns={columns(null, onRequestClick)} rows={filterResult} />
         <CustomPopupContext
       title={"Request a resource"}
       buttons={[
@@ -242,8 +249,8 @@ export default function ProjectList() {
           type: "primary",
         },
       ]} /*open={this.state.showPopup}*/
-      open={true}
-      onClickClose={() => {}}
+      open={isPopupOpen}
+      onClickClose={() => setIsPopupOpen(false)}
     >
       {" "}
       {
@@ -252,7 +259,7 @@ export default function ProjectList() {
             <div className={"project-name-block"}>
               <div className="project-name">
                 <p>Project Name:</p>
-                <p>RightData</p>
+                <p>{currentProject}</p>
               </div>
               <button className="addrow-btn" onClick={handleClick}>
                + Add Row
