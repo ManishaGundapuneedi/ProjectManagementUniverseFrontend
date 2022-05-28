@@ -100,7 +100,7 @@ const LoginPageComponent = ()=>{
                           )
                             .then((response) => {
                               if (response.status === 200) {
-                                    if(response.message === "SUCCESS"){
+                                    if(response.data.message === "SUCCESS"){
                                         navigate('/projects')
                                     }
                                     else{
