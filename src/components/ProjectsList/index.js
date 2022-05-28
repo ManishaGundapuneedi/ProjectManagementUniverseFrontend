@@ -183,7 +183,7 @@ export default function ProjectList() {
                 <img src={newi} alt="" />
               </div>
               <div className="kpi1">
-                <div className="kpn1">{kpisData.activeCount}}</div>
+                <div className="kpn1">{kpisData.activeCount}</div>
                 <div className="lbl1">Active</div>
               </div>
             </div>
