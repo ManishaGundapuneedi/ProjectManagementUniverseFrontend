@@ -30,3 +30,15 @@ tbody tr:hover {
   font-size: 40px;
   text-align: center;
 }
+@font-face {
+  font-family: 'Source-sans-pro-regular';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../src/assets/fonts/OpenSans-Regular.ttf')format('truetype');
+}
+/* :root {
+  --toastify-color-progress-light: linear-gradient(
+   unset !important;
+  );
+} */
