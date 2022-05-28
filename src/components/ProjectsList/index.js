@@ -73,7 +73,7 @@ export default function ProjectList() {
         key: "estimatedEod",
         label: "Estimated EOD",
         value: (row) => row.estimatedEod,
-        renderCell: (row) => <div>{row.estimatedEod ? new Date(row.estimatedEod) : '--'}</div>,
+        renderCell: (row) => <div>{row.estimatedEod ? (row.estimatedEod) : '--'}</div>,
       },
 
       {
