@@ -3,6 +3,7 @@ import "./Header.scss";
 import HamburgerIcon from "../../assets/images/svgs/hamburger.svg";
 import CancelIcon from "../../assets/images/svgs/cancel.svg";
 import { Link } from "react-router-dom";
+import pmuLogo from "../../assets/images/pngs/pmu.jpg"
 
 const ITEMS_LIST = [
   {
@@ -51,7 +52,7 @@ class Header extends Component {
       <div className="headerContainer">
         <div className="nav-brand">
           <a class="navbar-brand-logo" href="###">
-            <img className="logoImg" src="" alt="brand-logo" />
+            <img className="logoImg" src={pmuLogo} alt="brand-logo" />
           </a>
         </div>
         <div className="nav-bar"></div>

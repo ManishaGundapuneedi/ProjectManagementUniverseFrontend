@@ -4,13 +4,16 @@ import background from "../../assets/images/pngs/image-removebg-preview.png"
 import "./loginpage.css"
 import errorIcon from "../../assets/images/svgs/error.svg"
 import { postApiData } from "../../utils/apiServices";
+import { BASE_URL, LOGIN_URL } from "../../utils/constants";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
- const LoginPageComponent = ()=>{
-    React.useEffect(
-        ()=>{
 
-        },[]
-    )
+const LoginPageComponent = ()=>{
+    const navigate = useNavigate();
+     const notify = (msg) => toast(msg);
+    
     const [userEmail, setUserEmail] = useState({value: '', isValid: false, errorMsg: 'Please enter your email', isTouched: false})
 
     const [valid, setValid] = React.useState({value: '', isValid: false, errorMsg: 'Please enter your Password', isTouched: false});
@@ -21,6 +24,7 @@ import { postApiData } from "../../utils/apiServices";
     }
     return(
         <div className="login-page">
+            <ToastContainer />
             <div>
                 <div className="image-block">
                 <img src={background} className="logo-bg"/>
@@ -33,7 +37,7 @@ import { postApiData } from "../../utils/apiServices";
            
            <div className="login-page-block">
             <div className="sign-in-block">
-                <p className="sign-in-txt active-txt">
+                <p className="sign-in-txt active-txt" >
                     Sign In
                 </p>
               
@@ -42,7 +46,7 @@ import { postApiData } from "../../utils/apiServices";
                 <div className="email-block">
                     <input type="email" 
                          className="input-field"
-                          placeholder="Email Id / Mobile Number"
+                          placeholder="Email Id"
                           value={userEmail.value}
                             onChange={(e) => {
                                 let pattern= new RegExp("[^@\s]+@[^@\s]+\.[^@\s]+")
@@ -75,36 +79,42 @@ import { postApiData } from "../../utils/apiServices";
                         {valid.errorMsg}</p>:<></>}
                 </div>
                 <button className="login-btn common-btn-styles" onClick={() => {
+                    
                     if(!userEmail.isValid || !valid.isValid) {
                         setUserEmail((prev) => {return {...prev,  isTouched: true}})
                         setValid((prev) => {return {...prev,  isTouched: true}})
+                        notify("Invalid Request")
                     }
-                    // else{
-                    //      postApiData(
-                    //         `${projectsApiPort}${RESET_PASSWORD}`,
-                    //         "POST",
-                    //         payload
-                    //       )
-                    //         .then((response) => {
-                    //           if (response.status === 200) {
-                    //             this.setState({
-                    //               showSuccessTemplate: true,
-                    //               isLoading: false,
-                    //             //   body:{
-                    //             //       userEmail:userEmail.value,
-                    //             //       valid:valid.value
-                    //             //   }
-                    //             });
-                    //           }
-                    //         })
-                    //         .catch((error) => {
-                    //           this.setState({
-                    //             errorMessage: error.message,
-                    //             isLoading: false
-                    //           });
-                    //         });
-                    // }
-                }}>
+                    else{
+                        let payload =
+                            {
+                                email: userEmail.value,
+                                password: valid.value
+                            }
+                        
+                        console.log("called")
+                         postApiData(
+                            `${BASE_URL}${LOGIN_URL}`,
+                            "POST",
+                            payload
+                          )
+                            .then((response) => {
+                              if (response.status === 200) {
+                                    if(response.message === "SUCCESS"){
+                                        navigate('/projects')
+                                    }
+                                    else{
+                                        notify(response.data.message)
+                                    }
+                              }
+                            })
+                            .catch((error) => {
+                                notify("Invalid Request")
+                                console.log(error,"erroe text")
+                            });
+                    }
+                    
+                }} >
                 Login
             </button>
             </div>
