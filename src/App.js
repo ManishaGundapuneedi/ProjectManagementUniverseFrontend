@@ -9,7 +9,6 @@ import ResourceUtilisation from "./components/ResourceUtilisation";
 function App() {
   return (
     <div className="App">
-     
       <Router>
         {window.location.pathname !== "/" ?
           <Header />
