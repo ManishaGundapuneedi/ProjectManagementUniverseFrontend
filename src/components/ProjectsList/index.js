@@ -204,7 +204,7 @@ export default function ProjectList() {
           </div>
 
           <div className="rlist">
-            <button className="request-button">Resource List</button>
+            <button className="request-button">Requests List</button>
           </div>
         </div>
 
