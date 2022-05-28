@@ -1,11 +1,13 @@
 import './App.css';
-import LoginPageComponent from '../src/login-page/LoginPage'
+// import LoginPageComponent from '../src/login-page/LoginPage'
+import ProjectList from './components/login-page/projectlist';
 
 function App() {
   return (
    
     <div>
-        <LoginPageComponent/>
+        {/* <LoginPageComponent/> */}
+        <ProjectList/>
     </div>
   );
 }
