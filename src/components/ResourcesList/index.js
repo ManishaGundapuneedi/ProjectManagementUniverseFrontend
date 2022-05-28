@@ -146,7 +146,7 @@ export default function ResourcesList() {
       <div className="report">
         <div className="bread">
           <div className="arrhome">
-            <div className="home">Home</div>
+            <div className="home">Resources</div>
           </div>
           <div className="add-project-wrapper">
               <div className="add-project">
