@@ -1,11 +1,14 @@
 import Table from "../../common/Table/Table";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
 import arrow from "../../assets/images/svgs/arrow.svg";
 import newi from "../../assets/images/svgs/new.svg";
 import activei from "../../assets/images/svgs/active.svg";
 import inactivei from "../../assets/images/svgs/inactive.svg";
 import AddIcon from "../../assets/images/svgs/add-white.svg";
+import { getApiData } from "../../utils/apiServices";
+import { BASE_URL, PROJECTS_URL } from "../../utils/constants";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function ProjectList() {
   const rowData = [
@@ -42,48 +45,49 @@ export default function ProjectList() {
   ];
 
   const [filterResult, setFilterResult] = useState(rowData);
+  const notify = (msg) => toast(msg);
 
   const columns = (classes) => {
     return [
       {
-        key: "userName",
-        label: "User Name",
-        value: (row) => row.userName,
-        renderCell: (row) => <div>{row.userName}</div>,
+        key: "projectName",
+        label: "Project Name",
+        value: (row) => row.projectName,
+        renderCell: (row) => <div>{row.projectName ? row.projectName : '--'}</div>,
       },
       {
-        key: "company",
-        label: "Company Name",
-        value: (row) => row.company,
-        renderCell: (row) => <div>{row.company}</div>,
-      },
-
-      {
-        key: "location",
-        label: "Location",
-        value: (row) => row.location,
-        renderCell: (row) => <div>{row.location}</div>,
+        key: "projectStatus",
+        label: "Project Status",
+        value: (row) => row.projectStatus,
+        renderCell: (row) => <div>{row.projectStatus ? row.projectStatus : '--'}</div>,
       },
 
       {
-        key: "location",
-        label: "Location",
-        value: (row) => row.location,
-        renderCell: (row) => <div>{row.location}</div>,
+        key: "projectType",
+        label: "Project Type",
+        value: (row) => row.projectType,
+        renderCell: (row) => <div>{row.projectType ? row.projectType : '--'}</div>,
       },
 
       {
-        key: "location",
-        label: "Location",
-        value: (row) => row.location,
-        renderCell: (row) => <div>{row.location}</div>,
+        key: "estimatedEod",
+        label: "Estimated EOD",
+        value: (row) => row.estimatedEod,
+        renderCell: (row) => <div>{row.estimatedEod ? new Date(row.estimatedEod) : '--'}</div>,
       },
 
       {
-        key: "location",
-        label: "Location",
-        value: (row) => row.location,
-        renderCell: (row) => <div>{row.location}</div>,
+        key: "resourceRequestCount",
+        label: "Resource Requests",
+        value: (row) => row.resourceRequestCount,
+        renderCell: (row) => <div>{row.resourceRequestCount ? row.resourceRequestCount : '--'}</div>,
+      },
+
+      {
+        key: "resourcesCount",
+        label: "Resources Count",
+        value: (row) => row.resourcesCount,
+        renderCell: (row) => <div>{row.resourcesCount ? row.resourcesCount : '--'}</div>,
       },
 
       {
@@ -96,6 +100,35 @@ export default function ProjectList() {
       },
     ];
   };
+
+  useEffect(() => {
+    getProjectsList();
+  }, []);
+
+  const getProjectsList = () => {
+    getApiData(`${BASE_URL}${PROJECTS_URL}`, undefined, "GET")
+    .then((res) => {
+      if (res.data && res.data.status === 200) {
+        let list = res?.data?.data?.listData;
+        let finalList = list.map(eachItem => {
+          return {
+            projectId: eachItem.projectId,
+            projectName: eachItem.projectName,
+            projectStatus: eachItem.masterProjectStatus?.status,
+            projectType: eachItem.masterProjectType?.projectType,
+            estimatedEod: eachItem.endDate,
+            resourceRequestCount: eachItem.resourceRequests?.length,
+            resourcesCount: eachItem.resourceProjects?.length
+          }
+        });
+        setFilterResult(finalList);
+      }
+    })
+    .catch((err) => {
+      notify(err);
+    });
+  }
+
   return (
     <div>
       <div className="report">
