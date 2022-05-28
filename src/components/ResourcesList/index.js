@@ -84,7 +84,7 @@ export default function ResourcesList() {
 
       {
         key: "resourceSkills",
-        label: "Resource Requests",
+        label: "Resource skills",
         value: (row) => row.resourceSkills,
         renderCell: (row) => <div>{row.resourceSkills ? getSkillset(row.resourceSkills) : '--'}</div>,
       },
@@ -100,7 +100,7 @@ export default function ResourcesList() {
 
   const getSkillset = (data) => {
     if(data.length) {
-        return data.map(eachItem => eachItem.name)?.join(',');
+        return data.map(eachItem => eachItem.masterSkill?.skillName)?.join(',');
     } else {
         return '--';
     }
